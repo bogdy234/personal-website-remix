@@ -1,5 +1,4 @@
 import { FC, ReactElement } from "react";
-import image from "public/javascript.svg";
 
 interface SkillCardItemProps {
   src: string;

@@ -1,4 +1,4 @@
-import { Link, Outlet, useLocation, useParams } from "@remix-run/react";
+import { Link, useLocation } from "@remix-run/react";
 import { FC, ReactElement } from "react";
 import { HOME } from "~/constants/home";
 import styles from "~/styles";
@@ -23,7 +23,7 @@ const Navbar: FC = (): ReactElement => {
             key={route.label}
             className={`relative hover:text-white ${
               styles.underlined
-            } invisible sm:visible ${
+            } hidden sm:block ${
               location.pathname === route.path
                 ? "text-white after:scale-x-100"
                 : "text-slate-500"

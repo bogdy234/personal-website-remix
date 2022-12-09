@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+import HomeCard from "~/components/HomeCard";
 
 export const meta: MetaFunction = () => {
   return {
@@ -12,7 +13,18 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div>
-      <h1>This is home page</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-32 pt-24">
+        <HomeCard
+          title="Web development"
+          content=""
+          src="/web-development.png"
+        />
+        <HomeCard
+          title="Mobile development"
+          content=""
+          src="/mobile-development.png"
+        />
+      </div>
     </div>
   );
 }
