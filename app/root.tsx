@@ -28,13 +28,13 @@ export function links() {
 
 export default function App() {
   return (
-    <html lang="en" className="bg-[#1f2028]">
+    <html lang="en" className="bg-gray-100 dark">
       <head>
         <Meta />
         <Links />
       </head>
-      <body className="min-h-screen h-full">
-        <div className="w-full h-full bg-[#1f2028] text-3xl text-white px-6 py-11 m-0 overflow-hidden sm:px-16">
+      <body className="min-h-screen h-full dark:bg-[#1f2028]">
+        <div className="w-full h-full text-3xl text-gray-800 dark:text-white px-6 py-11 m-0 overflow-hidden sm:px-16">
           <Navbar />
           <Outlet />
         </div>

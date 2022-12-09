@@ -20,7 +20,7 @@ const CircleArrow: FC<CircleArrowProps> = ({
             cy="30"
           ></circle>
           <circle
-            className={`text-white ${
+            className={`text-gray-800 dark:text-white ${
               runAnimation ? "animate-empty-circle" : ""
             } group-hover:animate-fill-circle`}
             stroke="currentColor"

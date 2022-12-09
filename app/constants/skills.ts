@@ -23,7 +23,7 @@ export const SKILLS = {
       src: "/skills/css.svg",
     },
     {
-      text: "React & React Native",
+      text: "React",
       href: "https://reactjs.org/",
       src: "/skills/react.svg",
     },
