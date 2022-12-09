@@ -36,12 +36,39 @@ module.exports = {
             transform: "translateX(0)",
           },
         },
+        wave: {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "10%": {
+            transform: "rotate(14deg)",
+          } /* The following five values can be played with to make the waving more or less extreme */,
+          "20%": {
+            transform: "rotate(-8deg)",
+          },
+          "30%": {
+            transform: "rotate(14deg)",
+          },
+          "40%": {
+            transform: "rotate(-4deg)",
+          },
+          "50%": {
+            transform: "rotate(10deg)",
+          },
+          "60%": {
+            transform: "rotate(0deg)",
+          } /* Reset for the last half to pause */,
+          "100%": {
+            transform: "rotate(0deg)",
+          },
+        },
       },
       animation: {
         "fill-circle": "modify-stroke-offset-to-0 300ms forwards",
         "empty-circle": "modify-stroke-offset-to-full 300ms",
         "move-right": "translate-x 300ms forwards",
         "move-right-reverse": "translate-x-reverse 300ms",
+        "wave-hand": "wave 2500ms infinite",
       },
     },
   },

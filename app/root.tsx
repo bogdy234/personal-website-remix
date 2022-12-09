@@ -33,12 +33,10 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
-        <div className="w-full min-h-screen h-full bg-[#1f2028] text-3xl text-white px-6 sm:px-16 py-11 m-0 overflow-hidden">
+      <body className="min-h-screen h-full">
+        <div className="w-full h-full bg-[#1f2028] text-3xl text-white px-6 py-11 m-0 overflow-hidden sm:px-16">
           <Navbar />
-          <div className="sm:mx-10">
-            <Outlet />
-          </div>
+          <Outlet />
         </div>
         <ScrollRestoration />
         <Scripts />
