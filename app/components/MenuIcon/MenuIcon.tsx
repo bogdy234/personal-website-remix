@@ -7,7 +7,7 @@ interface MenuIconProps {
 
 const MenuIcon: FC<MenuIconProps> = ({ isOpen, onClick }): ReactElement => {
   return (
-    <div className="block sm:hidden w-14 h-14" onClick={onClick}>
+    <div className="block md:hidden w-14 h-14" onClick={onClick}>
       <button
         className="border-gray-500 focus:dark:border-white focus:border-black hover:border-black hover:dark:border-white inline-flex h-14 w-14 items-center justify-center rounded-full border-2 p-1 transition focus:outline-none"
         type="button"

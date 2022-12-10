@@ -4,7 +4,7 @@ import { HOME } from "~/constants/home";
 import styles from "~/styles";
 import MenuIcon from "~/components/MenuIcon/MenuIcon";
 import useMobileMenu from "~/hooks/useMobileMenu";
-import DarkThemeButton from "~/components/DarkThemeButton";
+import DarkThemeToggle from "~/components/DarkThemeToggle";
 
 const Navbar: FC = (): ReactElement => {
   const location = useLocation();
@@ -26,7 +26,7 @@ const Navbar: FC = (): ReactElement => {
           isOpen={isOpenMenu}
           onClick={() => setIsOpenMenu(!isOpenMenu)}
         />
-        <ul className="hidden sm:flex gap-10 text-[1.125rem] font-medium">
+        <ul className="hidden md:flex gap-10 text-[1.125rem] font-medium">
           {HOME.ROUTES.map((route) => (
             <li
               key={route.label}
@@ -44,7 +44,7 @@ const Navbar: FC = (): ReactElement => {
             </li>
           ))}
         </ul>
-        <DarkThemeButton />
+        <DarkThemeToggle />
       </div>
     </div>
   );

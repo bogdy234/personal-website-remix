@@ -1,9 +1,13 @@
 import { FC, ReactElement } from "react";
 import useDarkTheme from "~/hooks/useDarkTheme";
 
-interface DarkThemeButtonProps {}
+interface DarkThemeToggleProps {
+  forMobileMenu?: boolean;
+}
 
-const DarkThemeButton: FC<DarkThemeButtonProps> = (): ReactElement => {
+const DarkThemeToggle: FC<DarkThemeToggleProps> = ({
+  forMobileMenu = false,
+}): ReactElement => {
   const { isDarkTheme, setIsDarkTheme } = useDarkTheme();
 
   const changeTheme = () => {
@@ -11,7 +15,10 @@ const DarkThemeButton: FC<DarkThemeButtonProps> = (): ReactElement => {
   };
 
   return (
-    <div className="hidden w-14 h-14 sm:block" onClick={changeTheme}>
+    <div
+      className={`${forMobileMenu ? "block" : "hidden"} w-14 h-14 md:block`}
+      onClick={changeTheme}
+    >
       <button
         className="relative overflow-hidden border-gray-500 focus:dark:border-white focus:border-black hover:border-black hover:dark:border-white inline-flex h-14 w-14 items-center justify-center rounded-full border-2 p-1 transition focus:outline-none"
         type="button"
@@ -39,4 +46,4 @@ const DarkThemeButton: FC<DarkThemeButtonProps> = (): ReactElement => {
   );
 };
 
-export default DarkThemeButton;
+export default DarkThemeToggle;
