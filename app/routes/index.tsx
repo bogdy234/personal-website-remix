@@ -12,19 +12,13 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-32 pt-24">
-        <HomeCard
-          title="Web development"
-          content=""
-          src="/web-development.png"
-        />
-        <HomeCard
-          title="Mobile development"
-          content=""
-          src="/mobile-development.png"
-        />
-      </div>
-    </div>
+    <main className="grid grid-cols-1 md:grid-cols-2 gap-32 pt-24">
+      <HomeCard title="Web development" content="" src="/web-development.png" />
+      <HomeCard
+        title="Mobile development"
+        content=""
+        src="/mobile-development.png"
+      />
+    </main>
   );
 }

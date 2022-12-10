@@ -16,11 +16,11 @@ const { LANGUAGES_ITEMS, FRONTEND_ITEMS, BACKEND_ITEMS, HOBBIES_ITEMS } =
 
 export default function Skills() {
   return (
-    <div className="xl:w-8/12 m-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+    <main className="xl:w-8/12 m-auto grid grid-cols-1 md:grid-cols-2 gap-6">
       <SkillCard title="Languages" items={LANGUAGES_ITEMS} />
       <SkillCard title="Frontend" items={FRONTEND_ITEMS} />
       <SkillCard title="Backend" items={BACKEND_ITEMS} />
       <SkillCard title="Hobbies" items={HOBBIES_ITEMS} />
-    </div>
+    </main>
   );
 }

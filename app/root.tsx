@@ -6,7 +6,9 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useCatch,
   useLoaderData,
+  useLocation,
 } from "@remix-run/react";
 import MobileMenu from "./components/MobileMenu";
 import Navbar from "./components/Navbar";
@@ -17,11 +19,17 @@ import useMobileMenu from "./hooks/useMobileMenu";
 import styles from "./styles/app.css";
 import { getThemeSession } from "./utils/theme.server";
 
-export const meta: MetaFunction = () => ({
-  charset: "utf-8",
-  title: "New Remix App",
-  viewport: "width=device-width,initial-scale=1",
-});
+export const meta: MetaFunction = ({ data }) => {
+  const requestInfo = data?.requestInfo;
+  const title = "Bogdan Filimon";
+
+  return {
+    charset: "utf-8",
+    "theme-color": requestInfo?.session.theme === "dark" ? "#1F2028" : "#FFF",
+    title,
+    viewport: "width=device-width,initial-scale=1",
+  };
+};
 
 export function links() {
   return [
@@ -35,12 +43,14 @@ export function links() {
 
 export type LoaderData = {
   theme: Theme | null;
+  cspNonce: unknown;
 };
 
-export const loader: LoaderFunction = async ({ request }) => {
+export const loader: LoaderFunction = async ({ request, context }) => {
   const themeSession = await getThemeSession(request);
 
   const data: LoaderData = {
+    cspNonce: context.cspNonce,
     theme: themeSession.getTheme(),
   };
 
@@ -55,8 +65,8 @@ function App() {
     <html
       lang="en"
       className={`${
-        theme === Theme.DARK ? "bg-[#1f2028] dark" : "bg-gray-100"
-      } transition-bg ease-linear duration-300`}
+        theme === Theme.DARK ? "bg-[#1f2028] dark" : "bg-gray-100 light"
+      }`}
     >
       <head>
         <Meta />
@@ -84,5 +94,58 @@ export default function AppWithProviders() {
         <App />
       </MobileMenuProvider>
     </ThemeProvider>
+  );
+}
+
+export function CatchBoundary() {
+  const location = useLocation();
+  const caught = useCatch();
+
+  if (caught.status === 404) {
+    return (
+      <html
+        lang="en"
+        // className={`${
+        //   data?.theme === Theme.DARK ? "bg-[#1f2028] dark" : "bg-gray-100"
+        // } transition-bg ease-linear duration-300`}
+      >
+        <head>
+          <title>Oops!</title>
+          <Meta />
+          <Links />
+        </head>
+        <body>
+          <div className="w-full h-full text-3xl text-gray-800 dark:text-white px-6 py-11 m-0 overflow-hidden sm:px-16">
+            <Navbar />
+            <h1>{`${location.pathname} is not a page on this website. Please try another one.`}</h1>
+          </div>
+          <Scripts />
+        </body>
+      </html>
+    );
+  }
+
+  return (
+    <html
+      lang="en"
+      // className={`${
+      //   data?.theme === Theme.DARK ? "bg-[#1f2028] dark" : "bg-gray-100"
+      // } transition-bg ease-linear duration-300`}
+    >
+      <head>
+        <title>Oops!</title>
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        <div className="w-full h-full text-3xl text-gray-800 dark:text-white px-6 py-11 m-0 overflow-hidden sm:px-16">
+          <Navbar />
+          <h1>
+            {caught.status} {caught.statusText}
+          </h1>
+        </div>
+        <Scripts />
+      </body>
+    </html>
   );
 }

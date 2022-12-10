@@ -85,7 +85,7 @@ export default function Contact() {
   const [runAnimation, setRunAnimation] = useState(false);
 
   return (
-    <div className="flex flex-col items-center w-full">
+    <main className="flex flex-col items-center w-full">
       <Form method="post" className="w-full max-w-2xl">
         <h1>Contact</h1>
         <div className="my-8">
@@ -129,6 +129,6 @@ export default function Contact() {
           <h2>Send Message</h2> <CircleArrow runAnimation={runAnimation} />
         </button>
       </Form>
-    </div>
+    </main>
   );
 }

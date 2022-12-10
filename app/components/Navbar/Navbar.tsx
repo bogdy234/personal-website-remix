@@ -11,7 +11,7 @@ const Navbar: FC = (): ReactElement => {
   const { isOpenMenu, setIsOpenMenu } = useMobileMenu();
 
   return (
-    <div className="flex justify-between items-center text-[1.5rem] mb-20">
+    <nav className="flex justify-between items-center text-[1.5rem] mb-20">
       <Link
         to={"/"}
         prefetch="intent"
@@ -46,7 +46,7 @@ const Navbar: FC = (): ReactElement => {
         </ul>
         <ThemeToggle />
       </div>
-    </div>
+    </nav>
   );
 };
 

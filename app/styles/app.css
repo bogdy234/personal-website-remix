@@ -659,12 +659,12 @@ html {
   width: 3.5rem;
 }
 
-.w-24 {
-  width: 6rem;
-}
-
 .w-28 {
   width: 7rem;
+}
+
+.w-24 {
+  width: 6rem;
 }
 
 .max-w-2xl {
@@ -919,14 +919,6 @@ html {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 
-.fill-white {
-  fill: #fff;
-}
-
-.fill-blue-500 {
-  fill: #3b82f6;
-}
-
 .fill-current {
   fill: currentColor;
 }
@@ -1111,8 +1103,20 @@ html {
   transition-duration: 500ms;
 }
 
+.duration-1000 {
+  transition-duration: 1000ms;
+}
+
 .ease-linear {
   transition-timing-function: linear;
+}
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ease-in {
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
 .after\:absolute::after {

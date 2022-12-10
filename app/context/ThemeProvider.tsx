@@ -1,12 +1,5 @@
 import { useFetcher } from "@remix-run/react";
-import {
-  createContext,
-  Dispatch,
-  FC,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { createContext, Dispatch, FC, useEffect, useState } from "react";
 
 export enum Theme {
   DARK = "dark",
@@ -25,6 +18,10 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType);
 
+const prefersLightMQ = "(prefers-color-scheme: light)";
+const getPreferredTheme = () =>
+  window.matchMedia(prefersLightMQ).matches ? Theme.LIGHT : Theme.DARK;
+
 export const ThemeProvider: FC<ThemeProviderProps> = ({
   children,
   specifiedTheme,
@@ -34,33 +31,16 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
       if (Object.values(Theme).includes(specifiedTheme)) {
         return specifiedTheme;
       } else {
-        return Theme.LIGHT;
+        return getPreferredTheme();
       }
     }
-    return Theme.LIGHT;
+    return getPreferredTheme();
   });
 
   const persistTheme = useFetcher();
 
-  // TODO: remove this when persistTheme is memoized properly
-  const persistThemeRef = useRef(persistTheme);
-
   useEffect(() => {
-    persistThemeRef.current = persistTheme;
-  }, [persistTheme]);
-
-  const mountRun = useRef(false);
-
-  useEffect(() => {
-    if (!mountRun.current) {
-      mountRun.current = true;
-      return;
-    }
-    if (!theme) {
-      return;
-    }
-
-    persistThemeRef.current.submit(
+    persistTheme.submit(
       { theme },
       { action: "action/set-theme", method: "post" }
     );
