@@ -1,7 +1,7 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, ReactNode } from "react";
 
 interface SkillCardItemProps {
-  src: string;
+  Icon: ReactNode;
   text: string;
   href: string;
 }
@@ -18,7 +18,7 @@ const SkillCard: FC<SkillCardProps> = ({ title, items }): ReactElement => {
         {title}
       </h5>
       <ul className="my-4 space-y-3">
-        {items.map(({ href, src, text }) => (
+        {items.map(({ href, Icon, text }) => (
           <li key={`skill-card-${text}`}>
             <a
               href={href}
@@ -26,8 +26,16 @@ const SkillCard: FC<SkillCardProps> = ({ title, items }): ReactElement => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={src} alt="javascript" className="w-24 h-16" />
-              <span className="flex-1 ml-3 whitespace-nowrap">{text}</span>
+              <>
+                {/* {typeof src !== "string" && src} */}
+                <div className="w-28 h-16">{Icon}</div>
+                {/* <img
+                src={src}
+                alt={`${text}-logo`}
+                className="w-24 h-16 fill-current"
+              /> */}
+                <span className="flex-1 ml-3 whitespace-nowrap">{text}</span>
+              </>
             </a>
           </li>
         ))}

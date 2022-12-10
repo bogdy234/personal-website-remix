@@ -663,6 +663,10 @@ html {
   width: 6rem;
 }
 
+.w-28 {
+  width: 7rem;
+}
+
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -913,6 +917,18 @@ html {
 .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+
+.fill-white {
+  fill: #fff;
+}
+
+.fill-blue-500 {
+  fill: #3b82f6;
+}
+
+.fill-current {
+  fill: currentColor;
 }
 
 .p-1 {

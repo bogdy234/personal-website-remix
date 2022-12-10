@@ -1,80 +1,100 @@
+import {
+  CssIcon,
+  ExpressIcon,
+  FlutterIcon,
+  HtmlIcon,
+  JavascriptIcon,
+  NextIcon,
+  NodeIcon,
+  PrismaIcon,
+  ReactIcon,
+  RemixIcon,
+  TailwindIcon,
+  TypescriptIcon,
+} from "~/components/Icons/Icons";
+
 export const SKILLS = {
   LANGUAGES_ITEMS: [
     {
       text: "Javascript",
       href: "https://www.javascript.com/",
-      src: "/skills/javascript.svg",
+      Icon: <JavascriptIcon />,
     },
     {
       text: "Typescript",
       href: "https://www.typescriptlang.org/",
-      src: "/skills/typescript.svg",
+      Icon: <TypescriptIcon />,
     },
   ],
   FRONTEND_ITEMS: [
     {
       text: "HTML5",
       href: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-      src: "/skills/html.svg",
+      Icon: <HtmlIcon />,
     },
     {
       text: "CSS3",
       href: "https://developer.mozilla.org/en-US/docs/Web/CSS",
-      src: "/skills/css.svg",
+      Icon: <CssIcon />,
+    },
+    {
+      text: "Tailwind",
+      href: "https://tailwindcss.com/",
+      Icon: <TailwindIcon />,
     },
     {
       text: "React",
       href: "https://reactjs.org/",
-      src: "/skills/react.svg",
+      Icon: <ReactIcon />,
     },
     {
       text: "Next.js",
       href: "https://nextjs.org/",
-      src: "/skills/next.svg",
+      Icon: <NextIcon />,
     },
     {
       text: "Remix",
       href: "https://remix.run/docs/en/v1",
-      src: "/skills/remix.svg",
+      Icon: <RemixIcon />,
     },
   ],
   BACKEND_ITEMS: [
     {
       text: "Node.js",
       href: "https://nodejs.org/en/",
-      src: "/skills/node.svg",
+      Icon: <NodeIcon />,
     },
     {
       text: "Express.js",
       href: "https://expressjs.com/",
-      src: "/skills/express.svg",
+      Icon: <ExpressIcon />,
     },
     // {
     //   text: "MongoDB",
     //   href: "https://www.mongodb.com/",
-    //   src: "/skills/mongo.svg",
+    //   Icon: "/skills/mongo.svg",
     // },
     {
       text: "Prisma",
       href: "https://www.prisma.io/",
-      src: "/skills/prisma.svg",
+      Icon: <PrismaIcon />,
     },
     {
       text: "Next.js",
       href: "https://nextjs.org/",
-      src: "/skills/next.svg",
+      Icon: <NextIcon />,
     },
     {
       text: "Remix",
       href: "https://remix.run/docs/en/v1",
-      src: "/skills/remix.svg",
+      Icon: <RemixIcon />,
     },
   ],
   HOBBIES_ITEMS: [
     {
       text: "Flutter",
       href: "https://flutter.dev/",
-      src: "/skills/flutter.svg",
+      Icon: <FlutterIcon />,
     },
   ],
 };
