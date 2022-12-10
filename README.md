@@ -1,4 +1,4 @@
-Starter for remix configured with tailwind and typescript.
+## My personal website built with remix
 
 # Welcome to Remix!
 
