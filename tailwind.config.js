@@ -64,6 +64,23 @@ module.exports = {
             transform: "rotate(0deg)",
           },
         },
+        bump: {
+          "0%": {
+            transform: "scale(1)",
+          },
+          "10%": {
+            transform: "scale(0.9)",
+          },
+          "30%": {
+            transform: "scale(1.1)",
+          },
+          "50%": {
+            transform: "scale(1.15)",
+          },
+          "100%": {
+            transform: "scale(1)",
+          },
+        },
       },
       animation: {
         "fill-circle": "modify-stroke-offset-to-0 300ms forwards",
@@ -71,6 +88,7 @@ module.exports = {
         "move-right": "translate-x 300ms forwards",
         "move-right-reverse": "translate-x-reverse 300ms",
         "wave-hand": "wave 2500ms infinite",
+        bump: "bump 300ms ease-out forwards",
       },
     },
   },

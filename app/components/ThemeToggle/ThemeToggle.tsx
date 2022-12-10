@@ -14,7 +14,6 @@ const ThemeToggle: FC<ThemeToggleProps> = ({
 
   const changeTheme = () => {
     const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
-    localStorage.setItem("theme", JSON.stringify(newTheme));
     setTheme(newTheme);
   };
 

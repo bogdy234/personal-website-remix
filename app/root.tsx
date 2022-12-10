@@ -18,6 +18,7 @@ import useTheme from "./hooks/useTheme";
 import useMobileMenu from "./hooks/useMobileMenu";
 import styles from "./styles/app.css";
 import { getThemeSession } from "./utils/theme.server";
+import Footer from "./components/Footer";
 
 export const meta: MetaFunction = ({ data }) => {
   const requestInfo = data?.requestInfo;
@@ -73,13 +74,14 @@ function App() {
         <Links />
       </head>
       <body className="min-h-screen h-full dark:bg-[#1f2028]">
-        <div className="w-full h-full text-3xl text-gray-800 dark:text-white px-6 py-11 m-0 overflow-hidden sm:px-16">
+        <div className="min-h-screen w-full h-full text-3xl text-gray-800 dark:text-white px-6 py-11 m-0 overflow-hidden sm:px-16">
           <Navbar />
           {isOpenMenu ? <MobileMenu /> : <Outlet />}
         </div>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        <Footer />
       </body>
     </html>
   );
