@@ -1,17 +1,20 @@
 import { FC, ReactElement } from "react";
-import useDarkTheme from "~/hooks/useDarkTheme";
+import { Theme } from "~/context/ThemeProvider";
+import useTheme from "~/hooks/useTheme";
 
-interface DarkThemeToggleProps {
+interface ThemeToggleProps {
   forMobileMenu?: boolean;
 }
 
-const DarkThemeToggle: FC<DarkThemeToggleProps> = ({
+const ThemeToggle: FC<ThemeToggleProps> = ({
   forMobileMenu = false,
 }): ReactElement => {
-  const { isDarkTheme, setIsDarkTheme } = useDarkTheme();
+  const { theme, setTheme } = useTheme();
 
   const changeTheme = () => {
-    setIsDarkTheme(!isDarkTheme);
+    const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
+    localStorage.setItem("theme", JSON.stringify(newTheme));
+    setTheme(newTheme);
   };
 
   return (
@@ -27,7 +30,7 @@ const DarkThemeToggle: FC<DarkThemeToggleProps> = ({
           src="/moon.svg"
           alt="toggle-to-light-mode"
           className={`absolute transition-translate transition-visibility duration-500 ${
-            !isDarkTheme
+            theme === Theme.LIGHT
               ? "-translate-x-12 translate-y-2 invisible"
               : "translate-x-0 translate-y-0"
           }`}
@@ -36,7 +39,7 @@ const DarkThemeToggle: FC<DarkThemeToggleProps> = ({
           src="/sun.svg"
           alt="toggle-to-night-mode"
           className={`absolute transition-translate transition-visibility duration-500 ${
-            isDarkTheme
+            theme === Theme.DARK
               ? "translate-x-12 translate-y-2 invisible"
               : "translate-x-0 translate-y-0 visible"
           }`}
@@ -46,4 +49,4 @@ const DarkThemeToggle: FC<DarkThemeToggleProps> = ({
   );
 };
 
-export default DarkThemeToggle;
+export default ThemeToggle;

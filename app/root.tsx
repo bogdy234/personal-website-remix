@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -6,14 +6,16 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "@remix-run/react";
 import MobileMenu from "./components/MobileMenu";
 import Navbar from "./components/Navbar";
-import { DarkThemeProvider } from "./context/DarkThemeProvider";
+import { ThemeProvider, Theme } from "./context/ThemeProvider";
 import { MobileMenuProvider } from "./context/MobileMenuProvider";
-import useDarkTheme from "./hooks/useDarkTheme";
+import useTheme from "./hooks/useTheme";
 import useMobileMenu from "./hooks/useMobileMenu";
 import styles from "./styles/app.css";
+import { getThemeSession } from "./utils/theme.server";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -31,15 +33,29 @@ export function links() {
   ];
 }
 
+export type LoaderData = {
+  theme: Theme | null;
+};
+
+export const loader: LoaderFunction = async ({ request }) => {
+  const themeSession = await getThemeSession(request);
+
+  const data: LoaderData = {
+    theme: themeSession.getTheme(),
+  };
+
+  return data;
+};
+
 function App() {
   const { isOpenMenu } = useMobileMenu();
-  const { isDarkTheme } = useDarkTheme();
+  const { theme } = useTheme();
 
   return (
     <html
       lang="en"
       className={`${
-        isDarkTheme ? "bg-[#1f2028] dark" : "bg-gray-100"
+        theme === Theme.DARK ? "bg-[#1f2028] dark" : "bg-gray-100"
       } transition-bg ease-linear duration-300`}
     >
       <head>
@@ -60,11 +76,13 @@ function App() {
 }
 
 export default function AppWithProviders() {
+  const data = useLoaderData<LoaderData>();
+
   return (
-    <DarkThemeProvider>
+    <ThemeProvider specifiedTheme={data.theme || Theme.LIGHT}>
       <MobileMenuProvider>
         <App />
       </MobileMenuProvider>
-    </DarkThemeProvider>
+    </ThemeProvider>
   );
 }

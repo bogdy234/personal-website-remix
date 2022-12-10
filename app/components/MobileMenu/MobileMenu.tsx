@@ -2,11 +2,9 @@ import { Link } from "@remix-run/react";
 import { FC, ReactElement } from "react";
 import { HOME } from "~/constants/home";
 import useMobileMenu from "~/hooks/useMobileMenu";
-import DarkThemeToggle from "../DarkThemeToggle";
+import ThemeToggle from "../ThemeToggle";
 
-interface MobileMenuProps {}
-
-const MobileMenu: FC<MobileMenuProps> = (): ReactElement => {
+const MobileMenu: FC = (): ReactElement => {
   const { setIsOpenMenu } = useMobileMenu();
 
   return (
@@ -31,7 +29,7 @@ const MobileMenu: FC<MobileMenuProps> = (): ReactElement => {
           </div>
         ))}
       </ul>
-      <DarkThemeToggle forMobileMenu />
+      <ThemeToggle forMobileMenu />
     </div>
   );
 };

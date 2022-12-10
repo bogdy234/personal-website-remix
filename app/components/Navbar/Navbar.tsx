@@ -4,7 +4,7 @@ import { HOME } from "~/constants/home";
 import styles from "~/styles";
 import MenuIcon from "~/components/MenuIcon/MenuIcon";
 import useMobileMenu from "~/hooks/useMobileMenu";
-import DarkThemeToggle from "~/components/DarkThemeToggle";
+import ThemeToggle from "~/components/ThemeToggle";
 
 const Navbar: FC = (): ReactElement => {
   const location = useLocation();
@@ -44,7 +44,7 @@ const Navbar: FC = (): ReactElement => {
             </li>
           ))}
         </ul>
-        <DarkThemeToggle />
+        <ThemeToggle />
       </div>
     </div>
   );
