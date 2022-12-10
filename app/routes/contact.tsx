@@ -83,7 +83,6 @@ export const action: ActionFunction = async ({ request, context }) => {
 export default function Contact() {
   const data = useActionData<ActionData>();
   const [runAnimation, setRunAnimation] = useState(false);
-  console.log(data);
 
   return (
     <div className="flex flex-col items-center w-full">
