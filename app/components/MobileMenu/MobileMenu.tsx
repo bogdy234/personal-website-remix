@@ -11,7 +11,7 @@ const MobileMenu: FC = (): ReactElement => {
     <div className="h-screen flex flex-col gap-8 items-center">
       <ul className="flex flex-col text-[1.125rem] font-medium w-full">
         {HOME.ROUTES.map((route) => (
-          <div>
+          <div key={route.label}>
             <Link to={route.path} prefetch="intent">
               <li
                 key={route.label}
