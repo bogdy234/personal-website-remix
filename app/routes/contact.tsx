@@ -5,6 +5,7 @@ import CircleArrow from "~/components/CircleArrow";
 import styles from "~/styles";
 import { z } from "zod";
 import FieldError from "~/components/FieldError";
+import { commitSession, getContactSession } from "~/utils/contact.server";
 
 export const meta: MetaFunction = () => {
   return {
@@ -41,7 +42,7 @@ type ActionData = {
 
 const badRequest = (data: ActionData) => json(data, { status: 400 });
 
-export const action: ActionFunction = async ({ request, context }) => {
+export const action: ActionFunction = async ({ request }) => {
   const form = await request.formData();
   const fields = Object.fromEntries(form.entries()) as ContactFields;
 
@@ -77,7 +78,18 @@ export const action: ActionFunction = async ({ request, context }) => {
     });
   }
 
-  return redirect("/");
+  const contactSession = await getContactSession(request);
+
+  contactSession.flash(
+    "contactMessage",
+    `Thank you for your message, ${fields.name}! I will get back to you as soon as possible.`
+  );
+
+  return redirect("/", {
+    headers: {
+      "Set-Cookie": await commitSession(contactSession),
+    },
+  });
 };
 
 export default function Contact() {

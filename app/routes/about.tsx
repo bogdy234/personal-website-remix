@@ -14,7 +14,7 @@ export default function About() {
   return (
     <main className="flex flex-col items-center justify-center w-full leading-10 min-h-[60vh]">
       <div className="flex items-center justify-center flex-col lg:flex-row gap-12">
-        <div className="min-w-64 text-[1rem] text-justify break-all sm:break-normal sm:text-center sm:text-3xl">
+        <div className="min-w-64 text-[1rem] text-justify break-words sm:break-normal sm:text-center sm:text-3xl">
           <div>
             <span>Hi!</span>
             <span className="animate-wave-hand inline-block ml-2">👋</span>

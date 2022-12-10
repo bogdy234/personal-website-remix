@@ -1,9 +1,7 @@
 import { FC, ReactElement } from "react";
 import { GithubIcon, LinkedinIcon } from "~/components/Icons/Icons";
 
-interface FooterProps {}
-
-const Footer: FC<FooterProps> = (): ReactElement => {
+const Footer: FC = (): ReactElement => {
   return (
     <footer className="min-h-52 bg-gray-300 dark:bg-gray-700 dark:text-gray-100 px-6 py-11">
       <div className="flex justify-around">
