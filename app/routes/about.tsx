@@ -15,17 +15,17 @@ export default function About() {
     <main className="flex flex-col items-center justify-center w-full leading-10 min-h-[60vh]">
       <div className="flex items-center justify-center flex-col lg:flex-row gap-12">
         <div className="min-w-64 text-[1rem] text-justify break-words sm:break-normal sm:text-center sm:text-3xl">
-          <div>
+          <p>
             <span>Hi!</span>
             <span className="animate-wave-hand inline-block ml-2">👋</span>
-          </div>
-          <div>My name is Bogdan.</div>
-          <div>
+          </p>
+          <p>My name is Bogdan.</p>
+          <p>
             I am a student at Technical University of Cluj-Napoca and also a
             passionate software developer that currently works with Javascript,
             Typescript, React, Next.js, Remix and React Native.
-          </div>
-          <div>As a side activity I love playing football.</div>
+          </p>
+          <p>As a side activity I love playing football.</p>
         </div>
         <div className="w-1/2">
           <img
