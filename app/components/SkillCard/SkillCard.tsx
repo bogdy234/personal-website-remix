@@ -28,7 +28,7 @@ const SkillCard: FC<SkillCardProps> = ({ title, items }): ReactElement => {
             >
               <>
                 {/* {typeof src !== "string" && src} */}
-                <div className="w-28 h-16">{Icon}</div>
+                <div className="w-28 h-16 flex justify-center">{Icon}</div>
                 {/* <img
                 src={src}
                 alt={`${text}-logo`}

@@ -11,8 +11,13 @@ export const meta: MetaFunction = () => {
   };
 };
 
-const { LANGUAGES_ITEMS, FRONTEND_ITEMS, BACKEND_ITEMS, HOBBIES_ITEMS } =
-  SKILLS;
+const {
+  LANGUAGES_ITEMS,
+  FRONTEND_ITEMS,
+  BACKEND_ITEMS,
+  HOBBIES_ITEMS,
+  OTHERS_ITEMS,
+} = SKILLS;
 
 export default function Skills() {
   return (
@@ -20,6 +25,7 @@ export default function Skills() {
       <SkillCard title="Languages" items={LANGUAGES_ITEMS} />
       <SkillCard title="Frontend" items={FRONTEND_ITEMS} />
       <SkillCard title="Backend" items={BACKEND_ITEMS} />
+      <SkillCard title="Others" items={OTHERS_ITEMS} />
       <SkillCard title="Hobbies" items={HOBBIES_ITEMS} />
     </main>
   );

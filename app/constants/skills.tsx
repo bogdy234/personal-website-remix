@@ -2,8 +2,10 @@ import {
   CssIcon,
   ExpressIcon,
   FlutterIcon,
+  GraphQL,
   HtmlIcon,
   JavascriptIcon,
+  NestIcon,
   NextIcon,
   NodeIcon,
   PrismaIcon,
@@ -88,6 +90,18 @@ export const SKILLS = {
       text: "Remix",
       href: "https://remix.run/docs/en/v1",
       Icon: <RemixIcon />,
+    },
+    {
+      text: "NestJS",
+      href: "https://nestjs.com/",
+      Icon: <NestIcon />,
+    },
+  ],
+  OTHERS_ITEMS: [
+    {
+      text: "GraphQL",
+      href: "https://graphql.org",
+      Icon: <GraphQL />,
     },
   ],
   HOBBIES_ITEMS: [
