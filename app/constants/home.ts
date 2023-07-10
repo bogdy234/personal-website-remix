@@ -3,5 +3,6 @@ export const HOME = {
     { label: "About", path: "/about" },
     { label: "Skills", path: "/Skills" },
     { label: "Contact", path: "/contact" },
+    { label: "Blog", path: "/blog" },
   ],
 };

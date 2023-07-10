@@ -33,7 +33,7 @@ const Navbar: FC = (): ReactElement => {
               className={`relative hover:text-black dark:hover:text-white ${
                 styles.underlined
               } ${
-                location.pathname === route.path
+                location.pathname.includes(route.path)
                   ? "text-gray-800 dark:text-white after:scale-x-100"
                   : "text-slate-500"
               }`}

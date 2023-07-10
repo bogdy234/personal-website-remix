@@ -19,7 +19,10 @@ const SkillCard: FC<SkillCardProps> = ({ title, items }): ReactElement => {
       </h5>
       <ul className="my-4 space-y-3">
         {items.map(({ href, Icon, text }) => (
-          <li key={`skill-card-${text}`}>
+          <li
+            key={`skill-card-${text}`}
+            className="transition-all ease-in-out hover:scale-110"
+          >
             <a
               href={href}
               className="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"

@@ -1,11 +1,10 @@
 import { ActionFunction, json, MetaFunction, redirect } from "@remix-run/node";
 import { Form, useActionData } from "@remix-run/react";
-import { useState } from "react";
-import CircleArrow from "~/components/CircleArrow";
 import styles from "~/styles";
 import { z } from "zod";
 import FieldError from "~/components/FieldError";
 import { commitSession, getContactSession } from "~/utils/contact.server";
+import ActionButton from "~/components/ActionButton/ActionButton";
 
 export const meta: MetaFunction = () => {
   return {
@@ -94,7 +93,6 @@ export const action: ActionFunction = async ({ request }) => {
 
 export default function Contact() {
   const data = useActionData<ActionData>();
-  const [runAnimation, setRunAnimation] = useState(false);
 
   return (
     <main className="flex flex-col items-center w-full">
@@ -133,13 +131,7 @@ export default function Contact() {
         <FieldError
           errorsText={data?.formError ? [data.formError] : undefined}
         />
-        <button
-          type="submit"
-          className={`${styles.submitButton} group flex gap-4`}
-          onMouseEnter={() => setRunAnimation(true)}
-        >
-          <h2>Send Message</h2> <CircleArrow runAnimation={runAnimation} />
-        </button>
+        <ActionButton text="Send message" />
       </Form>
     </main>
   );

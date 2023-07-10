@@ -1,11 +1,15 @@
 import { FC, ReactElement } from "react";
+import classNames from "classnames";
+import { Direction } from "~/types/direction";
 
 interface CircleArrowProps {
   runAnimation?: boolean;
+  arrowDirection?: Direction;
 }
 
 const CircleArrow: FC<CircleArrowProps> = ({
   runAnimation = true,
+  arrowDirection = Direction.Right,
 }): ReactElement => {
   return (
     <div className="relative inline-flex h-14 w-14 flex-none items-center justify-center p-1">
@@ -40,12 +44,18 @@ const CircleArrow: FC<CircleArrowProps> = ({
         </svg>
       </div>
       <span
-        className={`${
-          runAnimation ? "animate-move-right-reverse" : ""
-        } group-hover:animate-move-right`}
+        className={classNames({
+          "animate-move-left-reverse": arrowDirection === Direction.Left,
+          "group-hover:animate-move-left": arrowDirection === Direction.Left,
+          "animate-move-right-reverse": arrowDirection === Direction.Right,
+          "group-hover:animate-move-right": arrowDirection === Direction.Right,
+        })}
       >
         <svg
-          className="transform -rotate-90"
+          className={classNames("transform", {
+            "-rotate-90": arrowDirection === Direction.Right,
+            "rotate-90": arrowDirection === Direction.Left,
+          })}
           width="32"
           height="32"
           viewBox="0 0 32 32"

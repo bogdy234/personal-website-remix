@@ -38,10 +38,10 @@ const ThemeToggle: FC<ThemeToggleProps> = ({
           className={`absolute ${
             firstRender
               ? ""
-              : "transition-translate transition-visibility duration-500"
+              : "transition-translate transition-visibility duration-700"
           } ${
             theme === Theme.LIGHT
-              ? "-translate-x-12 translate-y-2 invisible"
+              ? "-translate-x-16 translate-y-6 invisible"
               : "translate-x-0 translate-y-0"
           }`}
         />
@@ -51,10 +51,10 @@ const ThemeToggle: FC<ThemeToggleProps> = ({
           className={`absolute ${
             firstRender
               ? ""
-              : "transition-translate transition-visibility duration-500"
+              : "transition-translate transition-visibility duration-700"
           } ${
             theme === Theme.DARK
-              ? "translate-x-12 translate-y-2 invisible"
+              ? "translate-x-16 translate-y-6 invisible"
               : "translate-x-0 translate-y-0 visible"
           }`}
         />

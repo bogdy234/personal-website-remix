@@ -24,8 +24,6 @@ const Toast: FC<ToastProps> = ({ message }): ReactElement => {
       clearTimeout(timeout);
     };
   }, [isVisible]);
-  console.log("show", show);
-  console.log("message", message, isVisible);
 
   return (
     <div
