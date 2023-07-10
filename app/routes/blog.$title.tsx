@@ -4,7 +4,6 @@ import { useMemo } from "react";
 import { getPost } from "~/utils/post";
 import { getMDXComponent } from "mdx-bundler/client";
 import styles from "highlight.js/styles/night-owl.css";
-import proseStyle from "~/styles/prose.css";
 import BackButton from "~/components/BackButton/BackButton";
 
 type LoaderData = {
@@ -17,10 +16,6 @@ export const links = () => {
     {
       rel: "stylesheet",
       href: styles,
-    },
-    {
-      rel: "stylesheet",
-      href: proseStyle,
     },
   ];
 };
