@@ -35,7 +35,7 @@ const ThemeToggle: FC<ThemeToggleProps> = ({
         <img
           src="/moon.svg"
           alt="toggle-to-light-mode"
-          className={`absolute ${
+          className={`w-10 h-10 absolute ${
             firstRender
               ? ""
               : "transition-translate transition-visibility duration-700"
@@ -48,7 +48,7 @@ const ThemeToggle: FC<ThemeToggleProps> = ({
         <img
           src="/sun.svg"
           alt="toggle-to-night-mode"
-          className={`absolute ${
+          className={`w-10 h-10 absolute ${
             firstRender
               ? ""
               : "transition-translate transition-visibility duration-700"

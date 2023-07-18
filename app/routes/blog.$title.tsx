@@ -5,6 +5,7 @@ import { getPost } from "~/utils/post";
 import { getMDXComponent } from "mdx-bundler/client";
 import styles from "highlight.js/styles/night-owl.css";
 import BackButton from "~/components/BackButton/BackButton";
+import { formatDate } from "~/utils/date";
 
 type LoaderData = {
   frontmatter: any;
@@ -34,12 +35,18 @@ export async function loader({ params }: LoaderArgs) {
 }
 
 export default function BlogPost() {
-  const { code } = useLoaderData<LoaderData>();
+  const { code, frontmatter } = useLoaderData<LoaderData>();
   const Component = useMemo(() => getMDXComponent(code), [code]);
 
   return (
     <div className="flex flex-col max-w-2xl m-auto text-base">
-      <BackButton text="Read more articles" route="/blog" />
+      <div>
+        <BackButton text="Read more articles" route="/blog" />
+      </div>
+      <div className="text-3xl font-bold mt-10">{frontmatter.title}</div>
+      <div className="text-base text-gray-500 mt-2 font-bold">
+        {formatDate(frontmatter.date)}
+      </div>
       <div className="prose dark:prose-invert py-10 prose-pre:bg-transparent prose-pre:p-0 prose-a:text-blue-500 hover:prose-a:text-blue-700 prose-a:no-underline prose-blockquote:">
         <Component />
       </div>

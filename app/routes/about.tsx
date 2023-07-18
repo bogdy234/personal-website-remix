@@ -31,7 +31,7 @@ export default function About() {
           <img
             src={image}
             alt="a picture of me"
-            className="aspect-auto lg:max-w-[300px] rounded-lg"
+            className="aspect-auto lg:max-w-[300px] rounded-lg animate-jello-horizontal"
           />
         </div>
       </div>
