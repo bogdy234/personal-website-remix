@@ -17,9 +17,7 @@ export default function BlogIndex() {
     const { posts } = useLoaderData<LoaderData>();
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
-            {posts?.map((p) => (
-                <BlogCard src={p.image} title={p.title} description={p.description} key={p.title} />
-            ))}
+            {posts?.map((p) => <BlogCard src={p.image} title={p.title} description={p.description} key={p.title} />)}
         </div>
     );
 }

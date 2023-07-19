@@ -43,7 +43,6 @@ export default function BlogPost() {
     const { code, frontmatter, readTime } = useLoaderData<LoaderData>();
     const Component = useMemo(() => getMDXComponent(code), [code]);
 
-    console.log(readTime);
     return (
         <div className="flex flex-col max-w-2xl m-auto text-base">
             <div>

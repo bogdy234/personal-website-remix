@@ -1,8 +1,8 @@
 export const HOME = {
-  ROUTES: [
-    { label: "About", path: "/about" },
-    { label: "Skills", path: "/Skills" },
-    { label: "Contact", path: "/contact" },
-    { label: "Blog", path: "/blog" },
-  ],
+    ROUTES: [
+        { label: "About", path: "/about" },
+        { label: "Skills", path: "/Skills" },
+        { label: "Contact", path: "/contact" },
+        { label: "Blog", path: "/blog" },
+    ],
 };

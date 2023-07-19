@@ -77,7 +77,7 @@ export async function getPosts(): Promise<PostAttributes[]> {
                 date: date,
                 description: description,
             };
-        })
+        }),
     );
     return posts;
 }
