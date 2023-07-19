@@ -1,4 +1,4 @@
-import { LoaderArgs, json } from "@remix-run/node";
+import { LoaderArgs, MetaFunction, json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { useMemo } from "react";
 import { getPost } from "~/utils/blog-post";
@@ -27,6 +27,16 @@ export const links = () => {
             href: styles,
         },
     ];
+};
+
+export const meta: MetaFunction = ({ data }) => {
+    const { title, meta, description } = data.frontmatter;
+    return {
+        charset: "utf-8",
+        title,
+        description,
+        keywords: meta.keywords.join(","),
+    };
 };
 
 export async function loader({ params }: LoaderArgs) {

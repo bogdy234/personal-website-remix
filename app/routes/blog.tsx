@@ -1,3 +1,4 @@
+import { MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import BlogCard from "~/components/BlogCard/BlogCard";
 import { PostAttributes } from "~/types/post-attributes";
@@ -6,6 +7,15 @@ import { getPosts } from "~/utils/blog-post";
 interface LoaderData {
     posts: PostAttributes[];
 }
+
+export const meta: MetaFunction = () => {
+    return {
+        charset: "utf-8",
+        title: "Blog",
+        description: "This is the blog page of Bogdan Filimon's personal website",
+        keywords: "Blog, Filimon, Bogdan",
+    };
+};
 
 export async function loader(): Promise<LoaderData> {
     const posts = await getPosts();
