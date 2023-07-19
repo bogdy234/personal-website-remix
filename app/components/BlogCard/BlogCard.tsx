@@ -7,7 +7,11 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ src, title, description }: BlogCardProps) {
-    const link = `/blog/${title.toLowerCase().trim().split(" ").join("-")}`;
+    const formattedTitle = title?.toLowerCase().trim().split(" ").join("-");
+    if (!formattedTitle) {
+        return <></>;
+    }
+    const link = `/blog/${formattedTitle}`;
 
     return (
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 animate-slide-in-blurred-top">
