@@ -6,6 +6,8 @@ import { getMDXComponent } from "mdx-bundler/client";
 import styles from "highlight.js/styles/night-owl.css";
 import BackButton from "~/components/BackButton/BackButton";
 import { formatDate } from "~/utils/date";
+import Alert from "~/components/Alert";
+import InfoMessage from "~/components/InfoMessage";
 
 type LoaderData = {
     frontmatter: any;
@@ -39,6 +41,8 @@ export async function loader({ params }: LoaderArgs) {
     }
 }
 
+const Components = { Alert, InfoMessage };
+
 export default function BlogPost() {
     const { code, frontmatter, readTime } = useLoaderData<LoaderData>();
     const Component = useMemo(() => getMDXComponent(code), [code]);
@@ -53,7 +57,7 @@ export default function BlogPost() {
                 readTime.text
             }`}</div>
             <div className="prose dark:prose-invert py-10 prose-pre:bg-transparent prose-pre:p-0 prose-a:text-blue-500 hover:prose-a:text-blue-700 prose-a:no-underline prose-blockquote:">
-                <Component />
+                <Component components={{ ...Components }} />
             </div>
         </div>
     );
