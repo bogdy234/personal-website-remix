@@ -15,12 +15,12 @@ export default function BlogCard({ src, title, description }: BlogCardProps) {
 
     return (
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 animate-slide-in-blurred-top">
-            <Link to={link}>
+            <Link prefetch="intent" to={link}>
                 <img className="rounded-t-lg w-full object-fit ratio-1 " src={src} alt="" />
             </Link>
             <div className="flex flex-col justify-between items-start p-5">
                 <div>
-                    <Link to={link}>
+                    <Link prefetch="intent" to={link}>
                         <h5 className="h-16 mb-2 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                             {title}
                         </h5>
@@ -31,6 +31,7 @@ export default function BlogCard({ src, title, description }: BlogCardProps) {
                 </div>
                 <div>
                     <Link
+                        prefetch="intent"
                         to={link}
                         className="transition-all ease-in-out hover:scale-110 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
